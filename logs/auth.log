@@ -1,0 +1,9 @@
+Nov 24 10:01:12 kali sshd[1024]: Failed password for kali from 192.168.1.105 port 4567 ssh2
+Nov 24 10:01:15 kali sshd[1025]: Failed password for kali from 192.168.1.105 port 4568 ssh2
+Nov 24 10:01:18 kali sshd[1026]: Failed password for kali from 192.168.1.105 port 4569 ssh2
+Nov 24 10:01:21 kali sshd[1027]: Failed password for kali from 192.168.1.105 port 4570 ssh2
+Nov 24 10:02:10 kali sshd[1028]: Accepted password for kali from 192.168.1.110 port 4580 ssh2
+Nov 24 10:03:12 kali sshd[1029]: Failed password for root from 192.168.1.120 port 4590 ssh2
+Nov 24 10:03:15 kali sshd[1030]: Failed password for root from 192.168.1.120 port 4591 ssh2
+Nov 24 10:03:18 kali sshd[1031]: Failed password for root from 192.168.1.120 port 4592 ssh2
+Nov 24 10:04:12 kali sshd[1032]: Accepted password for kali from 192.168.1.110 port 4595 ssh2
