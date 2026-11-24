@@ -7,7 +7,8 @@ import os
 from datetime import datetime
 from risk_scoring import calculate_risk
 from threat_intel import analyze_ip
-from database import initialize_database
+from database import initialize_database, save_alerts
+from detector import analyze_logs
 
 # ==========================================
 # PAGE CONFIGURATION
@@ -19,8 +20,31 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
-# Initialize database on application startup
+# ==========================================
+# AUTOMATIC SECURITY LOG PROCESSING
+# ==========================================
+
+# Initialize database
 initialize_database()
+
+# Automatically process sample security logs
+LOG_FILE = "logs/test_attack.log"
+
+if os.path.exists(LOG_FILE):
+
+    try:
+        events, alerts = analyze_logs(LOG_FILE)
+
+        save_alerts(alerts)
+
+        print(f"[+] Events processed: {len(events)}")
+        print(f"[+] Security alerts generated: {len(alerts)}")
+
+    except Exception as e:
+        st.error(f"Log processing error: {e}")
+
+else:
+    st.warning("No security log file found.")
 
 # ==========================================
 # CUSTOM CSS
@@ -195,6 +219,7 @@ page = st.sidebar.radio(
     "NAVIGATION",
     [
         "Overview",
+	"Log Analysis",
         "Security Alerts",
         "IP Intelligence",
         "MITRE ATT&CK",
